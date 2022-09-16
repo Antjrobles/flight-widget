@@ -24,16 +24,24 @@ const populateTable = (flights) => {
     const flightDetails = {
         time: flight.departing.slice(0,5),
         destination: flight.destination.toUpperCase(),
-        flight: flight.flightNumber.shift()
+        flight: flight.flightNumber.shift(),
         gate: flight.gate,
         remarks: flight.status.toUpperCase()
     }
 
     for (const flightDetails in flightDetails) {
-        document.createElement('td')
+        const tableCell = document.createElement('td')
+        const word = Array.from(flightDetails[flightDetails])
+
+        for (const [index, letter] of word.entries()) {
+            const letterElement = document.createElement('div')
+
+            tableCell.append(letterElement)
+        }
     }
 
 
     tableBody.append(tableRow)
     }
+    tableRow.append(tableCell)
 }
